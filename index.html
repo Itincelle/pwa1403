@@ -3,13 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <title>progressive web app</title>
-    <link rel="manifest" href="manifest.json">
-    <link rel="stylesheet" href="MyAppPWA.css"/>  
-    
+     <link rel="stylesheet" type="text/css" href="css/MyAppPWA.css"/> 
+     <link rel="icon" href="./img/pwa-icon_48_48.png" />
+     <link rel="manifest" href="manifest.json">   
 </head>
+
 <body>
    <center><h1> My PWA</h1></center><br>
-
+   
+<hr/>
+<button class="add-button">Add to home screen</button>
+<hr/>
+<input type="button" value="p1" id="idP1" />  
+<input type="button" value="p2" id="idP2" /> 
+ 
+    
+    <!-- ce bout d ecode aide a se mettre off ligne mais on peut s en passer-->   
+<script>        
+             
+window.addEventListener('load',function() {
+//nb: la propriété (en readonly) navigator.onLine est tout le temps maintenue à jour par le navigateur
+document.getElementById('onlineOfflineStatus').innerHTML=(navigator.onLine==true)?'online':'offline';
+window.addEventListener('offline', function() {
+//nb: cet événement est déclenché lors d'un changement (mais pas dès le début)
+//exemple : coupure connexion wifi ou ...
+document.getElementById('onlineOfflineStatus').innerHTML='offline';
+});
+window.addEventListener('online', function() {
+//nb: cet événement est déclenché lors d'un changement (mais pas dès le début)
+//exemple : rétablissement connexion wifi ou ...
+document.getElementById('onlineOfflineStatus').innerHTML='online';
+});
+}) ;                
+</script>                     
+                      
+                         
+                            
+                                  
+<!-- ce bout de copde est la dès le debut-->
 <script>
 if ('serviceWorker' in navigator) {
 	window.addEventListener('load', function() {
