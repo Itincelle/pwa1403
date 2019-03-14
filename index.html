@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>progressive web app</title>
+    <link rel="manifest" href="manifest.json">
+    <link rel="stylesheet" href="MyAppPWA.css"/>  
+    
+</head>
+<body>
+   <center><h1> My PWA</h1></center><br>
+
+<script>
+if ('serviceWorker' in navigator) {
+	window.addEventListener('load', function() {
+    navigator.serviceWorker.register('service-worker.js')
+	.then(() => navigator.serviceWorker.ready)
+	.then(function(registration) {
+      // Registration was successful
+      console.log('ServiceWorker registration successful with scope: ', registration.scope);
+    }, function(err) {
+      // registration failed :(
+      console.log('ServiceWorker registration failed: ', err);
+    });
+  });
+}
+</script>  
+      
+</body>
+</html>
